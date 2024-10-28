@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -12,6 +12,8 @@ class UsuarioController extends Controller
     public function index()
     {
         //
+        $usuarios = Usuario::listarUsuarios(); // Array com os usuários
+        return view('usuarios.index', compact('usuarios'));
     }
 
     /**
@@ -28,6 +30,8 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         //
+        $dados = $request->all();
+        return view('usuarios.index', compact('dados'))->with('usuarios', Usuario::listarUsuarios());
     }
 
     /**

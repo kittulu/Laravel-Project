@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Conta;
 use Illuminate\Http\Request;
 
 class FinanceiroController extends Controller
@@ -11,7 +11,8 @@ class FinanceiroController extends Controller
      */
     public function index()
     {
-        //
+        $contas = Conta::listarContas(); // Array com as contas
+        return view('financeiro.index', compact('contas'));
     }
 
     /**
@@ -28,6 +29,8 @@ class FinanceiroController extends Controller
     public function store(Request $request)
     {
         //
+        $dados = $request->all();
+        return view('financeiro.index', compact('dados'))->with('contas', Conta::listarContas());
     }
 
     /**
