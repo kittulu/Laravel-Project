@@ -1,7 +1,7 @@
-<!-- resources/views/financeiro/index.blade.php -->
 
-<x-layout.app>
-    <h1>Financeiro</h1>
+    <div class=" p-3 m-3">
+    <h2>Inserir Registro</h2>
+
     <button onclick="document.getElementById('formFinanceiro').style.display='block'">Cadastrar Nova Conta</button>
 
     <div id="formFinanceiro" style="display:none;">
@@ -16,11 +16,15 @@
             <button type="submit">Cadastrar</button>
         </form>
     </div>
-
+    <div>
     <ul>
-        @foreach ($contas as $conta)
-            <li>{{ $conta['descricao'] }} - R$ {{ number_format($conta['valor'], 2, ',', '.') }} - {{ $conta['tipo'] }}</li>
-        @endforeach
+   
     </ul>
-</x-layout.app>
+
+    </div>
+
+</div>
+    <!-- resources/views/components/financeiro/financeiro-index.blade.php -->
+
+
 

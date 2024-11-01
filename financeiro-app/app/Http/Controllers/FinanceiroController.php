@@ -12,7 +12,7 @@ class FinanceiroController extends Controller
     public function index()
     {
         $contas = Conta::listarContas(); // Array com as contas
-        return view('financeiro.index', compact('contas'));
+        return view('components.financeiro.financeiro-index', compact('contas'));
     }
 
     /**
@@ -30,7 +30,9 @@ class FinanceiroController extends Controller
     {
         //
         $dados = $request->all();
-        return view('financeiro.index', compact('dados'))->with('contas', Conta::listarContas());
+        
+        return view('components.financeiro.financeiro-index',compact('dados'))->with('contas', Conta::listarContas());
+
     }
 
     /**
